@@ -2,13 +2,10 @@
 // BullMQ job helper for document ingestion
 
 const { Queue } = require("bullmq");
-const Redis = require("ioredis");
+const { createRedisConnection } = require("../../../config/redis");
 
-// Create a Redis connection
-const connection = new Redis({
-  host: process.env.REDIS_HOST || "redis",
-  port: process.env.REDIS_PORT || 6379,
-});
+// Create a Redis connection using shared connection helper
+const connection = createRedisConnection();
 
 // Create a BullMQ queue named "ingest"
 const ingestQueue = new Queue("ingest", { connection });

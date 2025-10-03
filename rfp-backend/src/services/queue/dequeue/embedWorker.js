@@ -2,15 +2,12 @@
 // BullMQ worker for batch embedding generation
 
 const { Worker } = require("bullmq");
-const Redis = require("ioredis");
+const { createRedisConnection } = require("../../../config/redis");
 const { generateEmbeddings, getModelMetadata } = require("../../embeddingService");
 const { findPendingChunksByIds, findPendingChunksByDocumentId, updateEmbeddingsBatch } = require("../../../models/chunkModel");
 
-// Connect to Redis
-const connection = new Redis({
-  host: process.env.REDIS_HOST || "redis",
-  port: process.env.REDIS_PORT || 6379,
-});
+// Connect to Redis using shared connection helper
+const connection = createRedisConnection();
 
 // Configuration
 const BATCH_SIZE = parseInt(process.env.EMBED_BATCH_SIZE) || 32;

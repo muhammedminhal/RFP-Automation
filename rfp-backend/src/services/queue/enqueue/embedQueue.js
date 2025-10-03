@@ -2,14 +2,11 @@
 // BullMQ queue for embedding generation jobs
 
 const { Queue } = require("bullmq");
-const Redis = require("ioredis");
+const { createRedisConnection } = require("../../../config/redis");
 const { randomUUID } = require("crypto");
 
-// Create Redis connection
-const connection = new Redis({
-  host: process.env.REDIS_HOST || "redis",
-  port: process.env.REDIS_PORT || 6379,
-});
+// Create Redis connection using shared connection helper
+const connection = createRedisConnection();
 
 // Create BullMQ queue for embedding jobs
 const embedQueue = new Queue("embed-batch", { connection });

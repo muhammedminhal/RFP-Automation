@@ -1,0 +1,68 @@
+version: "3.8"
+services:
+  db:
+    build:
+      context: ./db
+      dockerfile: Dockerfile
+    container_name: rfp_db
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+
+  redis:
+    image: redis:7-alpine
+    container_name: rfp_redis
+    ports:
+      - "${REDIS_PORT:-6379}:6379"
+
+  app:
+    build: .
+    container_name: rfp_app
+    depends_on:
+      - db
+      - redis
+    env_file:
+      - .env
+    ports:
+      - "${PORT:-3001}:3001"
+    volumes:
+      - ./public/uploads:/usr/src/app/public/uploads
+    restart: unless-stopped
+
+  worker:
+    build: .
+    container_name: rfp_worker
+    depends_on:
+      - db
+      - redis
+    env_file:
+      - .env
+    environment:
+      NODE_ENV: development
+    user: "0"
+    volumes:
+      - ./:/usr/src/app
+      - /usr/src/app/node_modules
+      - ./public/uploads:/usr/src/app/public/uploads
+    command: sh -c "[ -d node_modules ] && [ \"$(ls -A node_modules)\" ] || npm ci && npx nodemon --watch src src/services/queue/dequeue/ingestWorker.js"
+    restart: unless-stopped
+  
+  embed-worker:
+     build: .
+     container_name: rfp_embed_worker
+     depends_on: [db, redis]
+     env_file: [.env]
+     user: "0"
+     volumes:
+       - ./:/usr/src/app
+       - /usr/src/app/node_modules
+     command: sh -c "[ -d node_modules ] && [ \"$(ls -A node_modules)\" ] || npm ci && npx nodemon --watch src src/services/queue/dequeue/embedWorker.js"
+     restart: unless-stopped
+
+volumes:
+  pgdata:

@@ -14,7 +14,7 @@ router.get('/auth/google/callback', authController.handleGoogleCallback);
 router.get('/auth/success', authController.success);
 router.get('/me', authController.ensureAuthenticated, authController.me);
 
-// Search routes
-router.use('/search', searchRoutes);
+// Search routes (require authentication)
+router.use('/search', authController.ensureAuthenticated, searchRoutes);
 
 module.exports = router;

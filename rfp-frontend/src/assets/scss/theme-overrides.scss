@@ -1,0 +1,314 @@
+// Theme-aware component overrides
+// This file applies theme variables to all components
+
+// Dashboard Page
+.dashboard-page {
+  background: var(--bg-primary) !important;
+  color: var(--text-primary);
+
+  .hero-title {
+    color: var(--text-primary) !important;
+    background: transparent !important;
+    -webkit-text-fill-color: var(--text-primary) !important;
+  }
+
+  .hero-subtitle {
+    color: var(--text-tertiary) !important;
+  }
+
+  .stat-value {
+    color: var(--text-primary) !important;
+    background: transparent !important;
+    -webkit-text-fill-color: var(--text-primary) !important;
+  }
+
+  .stat-label {
+    color: var(--text-tertiary) !important;
+  }
+
+  .feature-title {
+    color: var(--text-secondary) !important;
+  }
+
+  .stat-card,
+  .feature-card {
+    background: var(--bg-tertiary) !important;
+    border-color: var(--border-primary) !important;
+  }
+}
+
+// RFP Documents Page
+.rfp-documents-page {
+  background: var(--bg-primary) !important;
+  color: var(--text-primary);
+
+  .hero-title {
+    color: var(--text-primary) !important;
+  }
+
+  .feature-box {
+    background: var(--bg-tertiary) !important;
+    border-color: var(--border-primary) !important;
+
+    h3 {
+      color: var(--text-primary) !important;
+    }
+  }
+
+  .features-list li {
+    color: var(--text-secondary) !important;
+  }
+
+  .upload-text {
+    color: var(--text-tertiary) !important;
+  }
+
+  .file-types-list p {
+    color: var(--text-tertiary) !important;
+  }
+
+  .section-title {
+    color: var(--text-primary) !important;
+  }
+
+  .rfp-card {
+    background: var(--bg-tertiary) !important;
+    border-color: var(--border-primary) !important;
+  }
+
+  .rfp-title {
+    color: var(--text-primary) !important;
+  }
+
+  .rfp-subtitle,
+  .rfp-id {
+    color: var(--text-muted) !important;
+  }
+
+  .rfp-item {
+    background: rgba(0, 0, 0, 0.1) !important;
+  }
+
+  .rfp-item-label {
+    color: var(--text-secondary) !important;
+  }
+
+  .rfp-item-date {
+    color: var(--text-muted) !important;
+  }
+
+  .arrow-btn {
+    color: var(--text-muted) !important;
+  }
+}
+
+// Settings Page
+.settings-page {
+  background: var(--bg-primary) !important;
+  color: var(--text-primary);
+
+  .construction-title {
+    color: var(--text-primary) !important;
+    background: transparent !important;
+    -webkit-text-fill-color: var(--text-primary) !important;
+  }
+
+  .construction-subtitle {
+    color: var(--text-tertiary) !important;
+  }
+
+  .detail-item {
+    background: var(--bg-tertiary) !important;
+    border-color: var(--border-accent) !important;
+
+    span {
+      color: var(--text-secondary) !important;
+    }
+  }
+}
+
+// Help Page
+.help-page {
+  background: var(--bg-primary) !important;
+  color: var(--text-primary);
+
+  .construction-title {
+    color: var(--text-primary) !important;
+    background: transparent !important;
+    -webkit-text-fill-color: var(--text-primary) !important;
+  }
+
+  .construction-subtitle {
+    color: var(--text-tertiary) !important;
+  }
+
+  .detail-item {
+    background: var(--bg-tertiary) !important;
+    border-color: var(--border-accent) !important;
+
+    span {
+      color: var(--text-secondary) !important;
+    }
+  }
+}
+
+// Headers (all pages)
+.search-header,
+.rfp-header,
+.dashboard-header,
+.settings-header,
+.help-header {
+  background: var(--bg-gradient) !important;
+  border-bottom: 1px solid var(--border-primary) !important;
+
+  .profile-dropdown {
+    background: var(--bg-secondary) !important;
+    border: 1px solid var(--border-accent) !important;
+
+    .profile-name {
+      color: var(--text-primary) !important;
+    }
+
+    .profile-email {
+      color: var(--text-muted) !important;
+    }
+
+    .profile-divider {
+      background: var(--border-primary) !important;
+    }
+
+    .signout-btn {
+      color: var(--text-primary) !important;
+    }
+  }
+}
+
+// Welcome sections
+.welcome-title {
+  color: var(--text-primary) !important;
+  background: transparent !important;
+  -webkit-text-fill-color: var(--text-primary) !important;
+}
+
+.welcome-subtitle {
+  color: var(--text-tertiary) !important;
+}
+
+// Search results
+.result-card {
+  background: var(--bg-tertiary) !important;
+  border: 1px solid var(--border-primary) !important;
+
+  h3 {
+    color: var(--text-primary) !important;
+  }
+
+  p {
+    color: var(--text-secondary) !important;
+  }
+
+  .result-actions {
+    .copy-btn,
+    .clear-btn {
+      color: var(--text-primary) !important;
+      background: var(--bg-secondary) !important;
+      border: 1px solid var(--border-primary) !important;
+
+      &:hover {
+        background: var(--bg-tertiary) !important;
+        border-color: var(--accent-primary) !important;
+        color: var(--accent-primary) !important;
+      }
+    }
+  }
+}
+
+// Feature boxes
+.feature-box {
+  background: var(--bg-tertiary) !important;
+  border: 1px solid var(--border-primary) !important;
+
+  h3 {
+    color: var(--text-primary) !important;
+  }
+}
+
+// Cards
+.stat-card,
+.feature-card,
+.rfp-card {
+  background: var(--bg-tertiary) !important;
+  border: 1px solid var(--border-primary) !important;
+}
+
+// Toggle button
+.sidebar-toggle {
+  svg {
+    color: var(--text-primary);
+  }
+}
+
+// Light theme specific adjustments
+[data-theme='light'] {
+  .rfp-item {
+    background: rgba(0, 0, 0, 0.03) !important;
+  }
+
+  .nav-link {
+    &:hover {
+      background: rgba(229, 9, 20, 0.08) !important;
+    }
+
+    &--active {
+      background: rgba(229, 9, 20, 0.12) !important;
+    }
+  }
+
+  .stat-card,
+  .feature-card,
+  .feature-box,
+  .rfp-card,
+  .result-card,
+  .detail-item {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+  }
+
+  .construction-icon svg,
+  .feature-icon svg {
+    filter: drop-shadow(0 0 10px rgba(229, 9, 20, 0.3)) !important;
+  }
+
+  // Search page specific
+  .search-input-wrapper {
+    background: var(--bg-secondary) !important;
+    border: 1px solid var(--border-primary) !important;
+
+    .search-input {
+      color: var(--text-primary) !important;
+
+      &::placeholder {
+        color: var(--text-muted) !important;
+      }
+    }
+
+    .search-icon {
+      color: var(--text-muted) !important;
+    }
+  }
+
+  .copy-btn,
+  .clear-btn {
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05) !important;
+
+    svg {
+      color: currentColor !important;
+    }
+  }
+}
+
+// Dark theme specific adjustments
+[data-theme='dark'] {
+  .rfp-item {
+    background: rgba(0, 0, 0, 0.2) !important;
+  }
+}

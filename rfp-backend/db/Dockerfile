@@ -21,6 +21,6 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/*
 
 # Copy DB init scripts to default entrypoint dir (executed at first run)
-COPY init/ /docker-entrypoint-initdb.d/
+COPY init/migrations/*.sql /docker-entrypoint-initdb.d/
 
 EXPOSE 5432

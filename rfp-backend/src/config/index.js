@@ -2,6 +2,7 @@
 module.exports = {
   NODE_ENV: process.env.NODE_ENV || 'development',
   PORT: process.env.PORT || 3001,
+  FRONTEND_URL: process.env.FRONTEND_URL || 'http://localhost:3000',
   POSTGRES_HOST: process.env.POSTGRES_HOST || 'db',
   POSTGRES_PORT: Number(process.env.POSTGRES_PORT || 5432),
   POSTGRES_DB: process.env.POSTGRES_DB || 'rfpdb',
@@ -11,7 +12,8 @@ module.exports = {
   REDIS_PORT: Number(process.env.REDIS_PORT || 6379),
   GOOGLE_CLIENT_ID: process.env.GOOGLE_CLIENT_ID || '',
   GOOGLE_CLIENT_SECRET: process.env.GOOGLE_CLIENT_SECRET || '',
-  GOOGLE_CALLBACK_URL: process.env.GOOGLE_CALLBACK_URL || 'http://localhost:3001/auth/google/callback',
+  GOOGLE_CALLBACK_URL: process.env.GOOGLE_CALLBACK_URL || 'http://localhost:3001/api/auth/google/callback',
+  JWT_SECRET: process.env.JWT_SECRET || 'your-super-secret-jwt-key-change-in-production',
   SESSION_SECRET: process.env.SESSION_SECRET || 'change_me',
   EMBEDDING_DIM: Number(process.env.EMBEDDING_DIM || 384),
   USE_XENOVA: (process.env.USE_XENOVA || 'false') === 'true',

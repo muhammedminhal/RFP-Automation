@@ -39,7 +39,10 @@ async function upsertUser({ email, name, provider, provider_id }) {
     ON CONFLICT (email) DO UPDATE
       SET name = EXCLUDED.name,
           provider = EXCLUDED.provider,
-          provider_id = EXCLUDED.provider_id
+          provider_id = EXCLUDED.provider_id,
+          last_login_at = now(),
+          email_verified = true,
+          updated_at = now()
     RETURNING *;
   `;
   const result = await pool.query(upsertSql, [email, name, provider, provider_id]);
